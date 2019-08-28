@@ -22,6 +22,11 @@ def jump(link, root):
 
 
 class MrRobot(object):
+    ''' MrRobot is single instance chatbot interface.
+        Every droid session has unique uuid (droidId)
+        To start discussion please use 'hello' command
+        by sending string query to 'get_response' member
+    '''    
     def __init__(self, droidId, name = "Elliot"):
         self.__name = name
         self.__droidId = str(uuid.UUID(droidId))

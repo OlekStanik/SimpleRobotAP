@@ -60,11 +60,13 @@ class FSociety_TestCase(unittest.TestCase):
         self.checkQueryToFSociety(fsociety,"YES",None,droidId1)
 
         self.test_history()
-        
+
     def test_history(self):
         fsociety = self.fsociety
         current_date = date.today()
-        fsociety.get_history(self.droidId,current_date)
+        rows = fsociety.get_history(self.droidId,current_date)
+        for row in rows:
+            print(row)
 
 if __name__ == '__main__':
     suite = unittest.TestSuite()

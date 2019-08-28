@@ -23,6 +23,10 @@ def pack_json_msg(msg, droidId):
     return {"message":msg, "droidId": str(droidId)}
 
 class FSociety(object):
+    ''' FSociety is main interface responsible for
+        multisession chatbot communication based on
+        json requests with build in archiver.
+    '''
     def __init__(self):
         self.__MrRobotDict = dict()
         self.__db = sqlite3.connect('archive.db')
@@ -62,5 +66,4 @@ class FSociety(object):
         cur.execute("SELECT * FROM story WHERE droidId=? AND date >?" , [droidId,vdate])
         self.__db.commit()
         rows = cur.fetchall()
-        for row in rows:
-            print(row)
+        return rows
