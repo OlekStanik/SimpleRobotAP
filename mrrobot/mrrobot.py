@@ -13,36 +13,12 @@
 # Written by Olek Stanik <olek.stanik@gmail.com>, August 2019
 
 import uuid
-from random import randrange
-
-def process_sum(text, num1, num2):
-    result = num1 + num2
-    return text.format(num1, num2), str(result)
-
-def rand_sum(text):
-    return process_sum(text, randrange(10), randrange(10))
-
-def const_sum(text):
-    return process_sum(text, 8, 9)
+from .conversation import conversation_json
 
 def jump(link, root):
     for k in link:
         root = root[k]
     return root
-
-conversation_json = { 
-    "hello": {  "response": "Are you droid?",
-        "yes": {    "response": "So then, prove you can do some math. What is the sum of {0} and {1}?", "action": const_sum,
-            "true": {   "response": "You are right! Wanna try another one?",
-                "yes": { "response" :"What is the sum of {0} and {1}?", "action": rand_sum,
-                    "true": { "response": "You are right! I’ll remember you can do the maths! EoC"},
-                    "false":{"response": "Nice try, human! EoC"}},
-                "no": {"response": "I see... Nice try, human! EoC"}},
-            "false": { "response": "Let's try again. What is the sum of {0} and {1}?", "action": const_sum,
-                "true": {"link":["hello", "yes", "true"]},
-                "false": {"link":["hello", "yes", "false"]}}},
-        "no": { "response": "That's so sad. EoC"}}
-}
 
 
 class MrRobot(object):
