@@ -60,7 +60,7 @@ class MrRobot_TestCase(unittest.TestCase):
 
     def test_droidMessagePositiveScenario1(self):
         Elliot = MrRobot(str(uuid.uuid4()))
-        self.assertEqual(Elliot.get_response("HELLO"),"Are you droid?")
+        self.assertEqual(Elliot.get_response("HELLO"),"Are you a droid?")
         self.assertEqual(Elliot.get_response("YES"),"So then, prove you can do some math. What is the sum of 8 and 9?")
         self.assertEqual(Elliot.get_response("17"),"You are right! Wanna try another one?")
         answere = Elliot.get_response("yeS")
@@ -71,7 +71,7 @@ class MrRobot_TestCase(unittest.TestCase):
 
     def test_droidMessageNegativeScenario1(self):
         Elliot = MrRobot(str(uuid.uuid4()))
-        self.assertEqual(Elliot.get_response("heLLO"),"Are you droid?")
+        self.assertEqual(Elliot.get_response("heLLO"),"Are you a droid?")
         self.assertEqual(Elliot.get_response("YEs"),"So then, prove you can do some math. What is the sum of 8 and 9?")
         answere = Elliot.get_response("31")
         self.assertIn("Let's try again. What is the sum of ",answere)
@@ -85,13 +85,13 @@ class MrRobot_TestCase(unittest.TestCase):
 
     def test_droidMessageNegativeScenario2(self):
         Elliot = MrRobot(str(uuid.uuid4()))
-        self.assertEqual(Elliot.get_response("heLLO"),"Are you droid?")
+        self.assertEqual(Elliot.get_response("heLLO"),"Are you a droid?")
         self.assertEqual(Elliot.get_response("nO"),"That's so sad. EoC")
         self.assertIsNone(Elliot.get_response("heLLO"))
 
     def test_droidMessageNegativeScenario3(self):
         Elliot = MrRobot(str(uuid.uuid4()))
-        self.assertEqual(Elliot.get_response("heLLO"),"Are you droid?")
+        self.assertEqual(Elliot.get_response("heLLO"),"Are you a droid?")
         self.assertEqual(Elliot.get_response("nO"),"That's so sad. EoC")
         self.assertIsNone(Elliot.get_response("heLLO"))
         

@@ -25,7 +25,7 @@ def const_sum(text):
     return process_sum(text, 8, 9)
     
 conversation_json = { 
-    "hello": {  "response": "Are you droid?",
+    "hello": {  "response": "Are you a droid?",
         "yes": {    "response": "So then, prove you can do some math. What is the sum of {0} and {1}?", "action": const_sum,
             "true": {   "response": "You are right! Wanna try another one?",
                 "yes": { "response" :"What is the sum of {0} and {1}?", "action": rand_sum,
